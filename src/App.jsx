@@ -1,4 +1,4 @@
-
+import Body from './conponents/Body.jsx'
 import './App.css'
 
 function App() {
@@ -6,9 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-amber-300 text-3xl font-bold underline">
-        hello How are you!! Khana Khake jaaana haan!
-      </div>
+    <Body></Body>
       
       
       
