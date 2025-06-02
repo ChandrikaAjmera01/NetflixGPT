@@ -5,12 +5,20 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
-import { addUser, removeUser } from "../utils/userSlice";   
+import { addUser, removeUser } from "../utils/userSlice"; 
+import {toggleGptSearchView} from "../utils/gptSlice"; // Assuming you have a gptSlice defined
+import { SUPPORTED_LANGUAGES } from "../utils/constant";
+import { changeLanguage } from "../utils/configSlice";
+
+ 
 
 const Header =()=>{
+    
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
+    const showGptSearchView = useSelector(state => state.gpt.showGptSearchView);
+    
     
 
     const handleSignOut = () => {
@@ -24,6 +32,16 @@ const Header =()=>{
             navigate("/error");
         });
        
+    }
+
+    const handleGPTSearchClick = () => {
+        // show and hide the GPT search component
+        dispatch(toggleGptSearchView());
+    }
+
+    const handleLanguageChange = (e) => {
+       
+        dispatch(changeLanguage(e.target.value));
     }
 
      useEffect(() => {
@@ -52,6 +70,18 @@ const Header =()=>{
             src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="logo"/>
         </div>
         { user.user && <div className="flex w-2/12 m-2 p-2">
+
+           {showGptSearchView && <select 
+                className="p-2 bg-gray-900 text-white rounded-lg mr-2"
+                onChange={handleLanguageChange}>
+                {SUPPORTED_LANGUAGES.map((lan)=>
+                    <option key={lan.identifier} value={lan.identifier}>
+                        {lan.name}
+                    </option>
+                )}
+            </select>} 
+            <button className="bg-purple-800 w-63 text-white rounded-lg"
+            onClick={handleGPTSearchClick}>{showGptSearchView ? "Homepage" : "GPT Search"}</button>
             <img className="rounded-3xl w-12 h-12" src={user?.user?.photoURL} alt="user"/>
             <h1 className="text-white font-bold text-center m-2">{user?.user?.displayName}</h1>
          <button className="font-bold text-center m-2 text-white w-34 bg-red-700 rounded-full" onClick={handleSignOut}>Sign out</button>

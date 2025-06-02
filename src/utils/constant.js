@@ -15,3 +15,10 @@ export const API_OPTIONS = {
 };
 export const PLAY_BTN_URL = "https://static.thenounproject.com/png/117815-200.png"
 export const MORE_INFO_BTN_URL = "https://cdn-icons-png.flaticon.com/512/8/8201.png";
+
+export const TMDB_IMG_BASE_URL = "https://image.tmdb.org/t/p/w500";
+
+export const SUPPORTED_LANGUAGES = [
+    {identifier: 'en', name: 'English'},
+     {identifier: 'hindi', name: 'हिंदी'}, 
+     {identifier: 'spanish', name: 'Español'}];

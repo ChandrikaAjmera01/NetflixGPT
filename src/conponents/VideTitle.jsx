@@ -2,8 +2,8 @@ import { MORE_INFO_BTN_URL, PLAY_BTN_URL } from "../utils/constant";
 
 const VideTitle = ({ title, overview }) => {
   return (
-    <div className="relative w-screen h-screen 
-      text-white pt-[30%] px-12">
+    <div className="relative
+      text-white pt-[3%] px-12">
       <h1 className="text-3xl font-bold">{title}</h1>
       <p className="w-1/4 text-lg py-6">{overview}</p>
       <div className="">
