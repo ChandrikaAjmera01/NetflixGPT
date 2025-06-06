@@ -14,7 +14,7 @@ const SecondaryContainer = () => {
             Movie list -popular, top rated, upcoming
             Card - title, poster, rating, overview
             */}
-        <div className="relative -mt-4 pl-12 z-20 bg-transparent">
+        <div className="relative md:-mt-4 pd-4 md:pl-12 z-20 bg-transparent">
             <MovieList title={"Now Playing"} movies={movies?.nowPlayingMovies}/>
             <MovieList title={"Trending"} movies={movies?.popularMovies}/>
             <MovieList title={"Popular"} movies={movies?.popularMovies}/>

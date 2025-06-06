@@ -4,14 +4,17 @@ import GptMovieSuggestion from './GptMovieSuggestion';
 import {BANNER_URL} from '../utils/constant';
 const GptSearch = () => {
     return(
-        <div>
-            <div className='absolute -z-10'>
+        <div className="">
+            <div className='fixed -z-10'>
                 <img 
+                className='h-screen object-cover md:h-full w-full'
                 src={BANNER_URL}
                 alt="logo"/>
             </div>
-           <GptSearchBar/>
-           <GptMovieSuggestion/>
+            <div className=''>
+            <GptSearchBar/>
+            <GptMovieSuggestion/>
+           </div>
         </div>
     );
 }

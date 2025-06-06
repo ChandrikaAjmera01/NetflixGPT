@@ -102,10 +102,11 @@ const Login = () => {
       <div>
          <Header />
          <div className="absolute">
-            <img src={BANNER_URL} alt="logo" />
+            <img src={BANNER_URL} alt="logo" className="h-screen object-cover md:h-full md:w-full" />
          </div>
-         <form onSubmit={(e)=>{e.preventDefault()}}className="absolute flex  flex-col w-4/12 my-36 mx-auto right-0 left-0   p-12  text-white rounded-lg bg-black/80">
-            <h1 className="font-bold text-3xl py-4">{isSignInForm? "Sign In" : "Sign Up"}</h1>
+         <form onSubmit={(e)=>{e.preventDefault()}}
+         className="absolute flex  flex-col w-full md:w-4/12 my-10 md:my-36 mx-auto right-0 left-0  p-4 md:p-12  text-white rounded-lg bg-black/80">
+            <h1 className="font-bold text-lg md:text-3xl py-4">{isSignInForm? "Sign In" : "Sign Up"}</h1>
             {!isSignInForm && <input  ref={username} type="text" placeholder="Full name" className="p-4 my-2 w-full bg-gray-700 text-gray-100" />}
             <input ref={email} type="text" placeholder="Email or phone number" className="p-4 my-2 w-full bg-gray-700 text-gray-100" />
             <input ref={password} type="password" placeholder="Password" className="p-4 my-2 w-full bg-gray-700 text-gray-100 " />

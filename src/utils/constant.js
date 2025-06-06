@@ -10,7 +10,7 @@ export const API_OPTIONS = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5ODAyMzBmYTlmMWM1ZTUzOTcwZjgxOGYzNGEyMmNjZiIsIm5iZiI6MTc0ODI1OTIwMi4yODQ5OTk4LCJzdWIiOiI2ODM0NTE4MjM5ZTMwMDc4NTBlYjMzZGUiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.RfYHvKPJmtjj1cp1jVRbS9Pc8Cho7Vg7NiD9V-o74tk",
+      "Bearer "+import.meta.env.VITE_API_TMDB_API_KEY, // Use Vite environment variable
   },
 };
 export const PLAY_BTN_URL = "https://static.thenounproject.com/png/117815-200.png"
@@ -22,3 +22,6 @@ export const SUPPORTED_LANGUAGES = [
     {identifier: 'en', name: 'English'},
      {identifier: 'hindi', name: 'हिंदी'}, 
      {identifier: 'spanish', name: 'Español'}];
+
+// For Vite or similar tools, use import.meta.env
+export const OPEN_AI_API_KEY = import.meta.env.VITE_API_OPEN_AI_API_KEY;
